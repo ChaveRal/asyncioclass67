@@ -13,14 +13,16 @@ async def main():
         for number in rand_list:
             pokemon_url = f'https://pokeapi.co/api/v2/pokemon/{number}'
             print(f"{time.ctime()} - get {pokemon_url}")
-            resp = await client.get(pokemon_url)
+            resp = await client.get(pokemon_url) #get each pokemon 
             pokemon_json = resp.json()
             pokemon_object = Pokemon(pokemon_json)
             pokemon_data.append(pokemon_object)
         return pokemon_data
+    #line 9-20 do like as pokemon01 
 
 if __name__ == '__main__':
     start_time = time.perf_counter()
     pokemons = asyncio.run(main())
     end_time = time.perf_counter()
     print(f"{time.ctime()} - Asynchronous get {len(pokemons)} pokemons. Time taken: {end_time-start_time} seconds")
+    
