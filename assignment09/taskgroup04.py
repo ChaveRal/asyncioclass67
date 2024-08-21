@@ -35,7 +35,7 @@ async def main():
         #wait a moment
         await asyncio.sleep(0.5)
         #cancel the second task
-        t2.cancel
+        t2.cancel()
     #check the status of ech task
     print(f'Task1: done={t1.done()}, cancelled={t1.cancelled()}')
     print(f'Task2: done={t2.done()}, cancelled={t2.cancelled()}')
